@@ -6,6 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link href='https://fonts.googleapis.com/css?family=Varela' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="../fonts/fontawesome5/css/all.min.css">
   <link rel="shortcut icon" href="../favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="../favicon.png">
@@ -31,17 +33,25 @@
           <li class="act"><a href="#">Home</a></li>
           <li><a href="#aboutBox">About</a></li>
           <li><a href="#portfolioBox">Portfolio</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="#contactBox">Contact</a></li>
         </ul>
       </nav>
     </header>
     <section id="viewBox">
       <h2 class="blind">Home</h2>
-      <div class="g_box"><span class="blind">smile</span></div>
-      <p class="text_box">
-        Hello ! <br />
-        Welcome to J World
-      </p>
+      <div id='stars'></div>
+      <div id='stars2'></div>
+      <div id='stars3'></div>
+      <div id='title'>
+        <span>
+          Hello !
+        </span>
+        <br>
+        <span>
+          Welcome to <span>J</span> World
+        </span>
+      </div>
+      <div class="h_box"><span class="blind">human</span></div>
       <div class="scroll_move"><span class="blind">마우스</span></div>
     </section>
     <article id="aboutBox">
@@ -49,8 +59,10 @@
       <div class="container clearfix">
         <dl class="profile">
           <dt><span class="blind">사진</span></dt>
+          <dd>이름 : 장 종 혁</dd>
           <dd>성별 : 남자</dd>
           <dd>생년월일 : 1996. 03 .04</dd>
+          <dd>주소 : 경기도 의왕</dd>
         </dl>
         <dl class="skill">
           <dt>EDUCATIONS</dt>
@@ -59,10 +71,10 @@
           <dt>SKILLS</dt>
           <dd>
             <ul class="skill_list">
-              <li><span class="blind">html</span></li>
-              <li><span class="blind">css</span></li>
-              <li><span class="blind">javascript</span></li>
-              <li><span class="blind">jQuery</span></li>
+              <li><span>html</span></li>
+              <li><span>css</span></li>
+              <li><span>javascript</span></li>
+              <li><span>jQuery</span></li>
             </ul>
           </dd>
         </dl>
@@ -78,9 +90,60 @@
     </article>
     <article id="portfolioBox">
       <h2>Portfolio</h2>
+      <div class="nbtn_box btn">
+        <button type="button">
+          <i class="fas fa-caret-right"></i>
+        </button>
+      </div>
+      <div class="pbtn_box btn">
+        <button type="button">
+          <i class="fas fa-caret-left"></i>
+        </button>
+      </div>
+      <div class="container">
+        <ul class="view_wrap">
+          <li>
+            <div class="proj_view"><span class="blind">반응형 이미지</span></div>
+            <div class="proj_info">
+              <p>01 <span>롯데리아 사이트 리뉴얼</span></p>
+              <p>viewport : <span>반응형</span></p>
+              <p class="color">color : <span></span><span></span><span></span></p>
+              <p>기존의 사이트는 ...</p>
+            </div>
+          </li>
+        </ul>
+      </div>
     </article>
+    <article id="contactBox">
+      <h2>Contact</h2>
+      <div class="container">
+        <div class="comen">
+          <p>제 사이트에 <br />방문해주셔서 감사합니다.</p>
+          <p>새로운 것에 도전하며 포기하지 않고 최선을 다하겠습니다.</p>
+          <p>Thank you.</p>
+        </div>
+        <div class="effect">
+          <div><span class="blind">star</span></div>
+          <div><span class="blind">star</span></div>
+          <div><span class="blind">star</span></div>
+          <div><span class="blind">star</span></div>
+          <div><span class="blind">planet</span></div>
+          <div><span class="blind">planet</span></div>
+        </div>
+        <div class="contac">
+          <p>장 종 혁</p>
+          <p>tel : 010-6487-3128</p>
+          <p>email : jjh0299@gmail.com</p>
+        </div>
+      </div>
+    </article>
+    <footer id="footBox">
+      <p>이 사이트는 상업적 목적으로 사용되지 않으며 개인 포트폴리오 용도로 제작되었습니다.</p>
+    </footer>
   </div>
   <!-- script -->
+  <script src="../js/jquery/jquery-3.6.0.min.js"></script>
+  <script src="../js/jquery/jquery-ui.min.js"></script>
   <script src="../js/src/portfolio.js"></script>
   
 </body>
