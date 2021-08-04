@@ -5,14 +5,10 @@
 // 변수
 var win = $(window);
 var winH = win.outerHeight(); // 스크린 높이
-var winC = winH / 3; // 화면상 1 / 3
 var st = win.scrollTop(); // 스크롤 값
-var movesc = st - abConot + winH; // 스크롤 연산 값
-var moveper =  parseInt(movesc / winH * 100); // 화면 100 분할 단위
-var checkLi = moveper / 100; // 구분 하기 위한 연산
-var checkLim;
 var setTime = 1000;
 var wrap = $('#wrap');
+var scT = $('.sc_top');
 // header 변수
 var gnB = $('.gnb_box'); // 상단 네비
 var gnBli = gnB.children('li'); // 네비 요소
@@ -28,6 +24,7 @@ var aboutS = $('.skill');
 var pfBox = $('#portfolioBox');
 var pfH2 = pfBox.find('h2');
 var pfC = pfBox.find('.container');
+var pfConot = pfC.offset().top;
 var viewUl = $('.view_wrap');
 var viewLi = viewUl.children('li');
 var nBtn = $('.nbtn_box').children('button');
@@ -35,14 +32,20 @@ var pBtn = $('.pbtn_box').children('button');
 // contact 변수
 var ctBox = $('#contactBox');
 var ctH2 = ctBox.find('h2');
+var ctC = ctBox.find('.container');
+var ctConot = ctC.offset().top;
 var comen = $('.comen');
 // 이동 배열 변수
 var height = [wrap.offset() , abBox.offset() , pfBox.offset(), ctBox.offset(),];
 // 이벤트
 // nav 클릭 이벤트
-gnBliA.on('click', function(){
+gnBliA.on('click', function(e){
+  e.preventDefault();
+  
   var _this = $(this).parent().index();
   $("html, body").animate({scrollTop: height[_this].top}, 400);
+  gnBli.eq(_this).addClass('act');
+  gnBli.eq(_this).siblings().removeClass('act');
 });
 // portfolio btn 클릭 이벤트
 var viewLiLen = viewLi.length;
@@ -66,41 +69,65 @@ pBtn.on('click', function(e){
   }
   viewUl.stop().animate({marginLeft:-100*n + '%'});
 });
-// 스크롤 이벤트
-win.on('scroll', function(){
-  st = win.scrollTop();
-  movesc = st - abConot + winH; // 스크롤 연산 값
-  moveper =  parseInt(movesc / winH * 100); // 화면 100 분할 단위
-
+// 함수
+var setscrollFn = function(Conot){
+  var wSt = win.scrollTop();
+  movesc = wSt - Conot + winH;
+  moveper =  parseInt(movesc / winH * 100);
   if(moveper < 0){
-    gnBli.eq(0).addClass('act');
-    gnBli.eq(0).siblings().removeClass('act');
+    moveper = 0;
+  }else if(moveper > 100){
+    moveper = 100;
   }
-  if(moveper >= 0){
-    aboutH2.fadeIn(setTime);
+  console.log(moveper);
+  return moveper;
+}
+var setconFn = function(){
+  var scTLen, i, scTeq, scTeqot, h2H, liCheck;
+  liCheck = parseInt(win.scrollTop() / 1000);
+  i=0;
+  scTLen = scT.length; 
+  for(; i < scTLen; i++){
+  scTeq = scT.eq(i);
+  scTeqot = scTeq.offset().top;
+  h2H = scTeq.find('h2').outerHeight();
+  scResult = scTeqot + h2H;
+  setscrollFn(scResult);
+  if(moveper > 10){
+    scTeq.find('h2').fadeIn();
   }
-  if(moveper >= 50){
-    aboutP.animate({left:25 + '%'},setTime);
-    aboutS.animate({right:20 + '%'},setTime);
-    gnBli.eq(1).addClass('act');
-    gnBli.eq(1).siblings().removeClass('act');
+  if(moveper > 35){
+    scTeq.find('.profile').animate({left:25 + '%'},setTime);
+    scTeq.find('.skill').animate({right:20 + '%'},setTime);
   }
-  if(moveper >= 120){
-    pfH2.fadeIn(setTime);
+  if(moveper > 45){
+    scTeq.find('.container').animate({top:0, opacity:1}, setTime);
+    scTeq.find('.comen').animate({opacity:1, marginTop:0}, setTime);
   }
-  if(moveper >= 150){
-    pfC.animate({top:0, opacity:1}, setTime);
-    gnBli.eq(2).addClass('act');
-    gnBli.eq(2).siblings().removeClass('act');
   }
-  if(moveper >= 230){
-    ctH2.fadeIn(setTime);
-    comen.animate({opacity:1, marginTop:0}, setTime);
+  switch(liCheck){
+    case 1:
+      gnBli.eq(1).addClass('act');
+      gnBli.eq(1).siblings().removeClass('act');
+      break;
+    case 2:
+      gnBli.eq(2).addClass('act');
+      gnBli.eq(2).siblings().removeClass('act');
+      break;
+    case 3:
+      gnBli.eq(3).addClass('act');
+      gnBli.eq(3).siblings().removeClass('act');
+      break;
+    default:
+      gnBli.eq(0).addClass('act');
+      gnBli.eq(0).siblings().removeClass('act');
+      break;
   }
-  if(moveper >= 250){
-    gnBli.eq(3).addClass('act');
-    gnBli.eq(3).siblings().removeClass('act');
-  }
+}
+// 스크롤 이벤트
+setconFn();
+win.on('scroll', function(){
+  setconFn();
 });
 
 $("html, body").animate({ scrollTop: 0 }, 'slow'); 
