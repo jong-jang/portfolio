@@ -12,9 +12,11 @@ var moveper =  parseInt(movesc / winH * 100); // 화면 100 분할 단위
 var checkLi = moveper / 100; // 구분 하기 위한 연산
 var checkLim;
 var setTime = 1500;
+var wrap = $('#wrap');
 // header 변수
 var gnB = $('.gnb_box'); // 상단 네비
 var gnBli = gnB.children('li'); // 네비 요소
+var gnBliA = gnBli.children('a'); // 요소 링크
 // about 변수
 var abBox = $('#aboutBox'); // about 영역
 var abCon = abBox.children('.container'); // about 내부 wrap
@@ -31,12 +33,16 @@ var ctBox = $('#contactBox');
 var ctH2 = ctBox.find('h2');
 var comen = $('.comen');
 
+var height = [wrap.offset() , abBox.offset() , pfBox.offset(), ctBox.offset(),]
 // 이벤트
+gnBliA.on('click', function(){
+  var _this = $(this).parent().index();
+  $("html, body").animate({scrollTop: height[_this].top}, 400);
+});
 win.on('scroll', function(){
   st = win.scrollTop();
   movesc = st - abConot + winH; // 스크롤 연산 값
   moveper =  parseInt(movesc / winH * 100); // 화면 100 분할 단위
-  console.log(moveper);
 
   if(moveper < 0){
     gnBli.eq(0).addClass('act');
