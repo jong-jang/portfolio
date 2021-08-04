@@ -2,6 +2,8 @@
 
 (function($){
 
+  $('body,html').animate({scrollTop:0});
+  
 // 변수
 var win = $(window);
 var winH = win.outerHeight(); // 스크린 높이
@@ -129,6 +131,4 @@ setconFn();
 win.on('scroll', function(){
   setconFn();
 });
-
-$("html, body").animate({ scrollTop: 0 }, 'slow'); 
 })(jQuery);
