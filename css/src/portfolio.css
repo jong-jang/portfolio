@@ -137,7 +137,7 @@ span span {
   opacity: 0;
 }
 .profile dt {
-  width:300px; height:400px;
+  width:200px; height:250px;
   border:1px solid #fff;
   margin-bottom: 2rem;
 }
@@ -176,6 +176,7 @@ span span {
   float:left;
   width:80px; height:100px;
   margin-right: 2rem;
+  margin-bottom: 2rem;
   text-align: center;
   background-repeat: no-repeat;
   background-size: 100%;
@@ -185,6 +186,9 @@ span span {
 .skill_list li:nth-of-type(2) {background-image: url("../../img/css.png");}
 .skill_list li:nth-of-type(3) {background-image: url("../../img/js.png");}
 .skill_list li:nth-of-type(4) {background-image: url("../../img/jq.png");}
+.skill_list li:nth-of-type(5) {background-image: url("../../img/illustrator.png");}
+.skill_list li:nth-of-type(6) {background-image: url("../../img/photoshop.png");}
+.skill_list li:nth-of-type(7) {background-image: url("../../img/figma.png");}
 
 .effect div {
   position:absolute;
@@ -196,13 +200,13 @@ span span {
   opacity: 0.5;
 }
 .effect div:nth-of-type(1) {
-  top:10%; left:10%;
+  bottom:80%; left:10%;
   width:5rem; height:5rem;
   background-image: url('../../img/jupiter.png');
-  animation-delay: 800ms;
+  animation-delay: 2000ms;
 }
 .effect div:nth-of-type(2) {
-  top:15%; right:27%;
+  bottom:83%; right:20%;
   width:4rem; height:4rem;
   background-image: url('../../img/jupiter2.png');
   animation-delay: 1200ms;
@@ -369,6 +373,9 @@ span span {
 }
 .use_list li:nth-of-type(4) {
   background-image: url("../../img/jq.png");
+}
+.use_list li:nth-of-type(5) {
+  background-image: url("../../img/illustrator.png");
 }
 /* contactBox */
 #contactBox {
