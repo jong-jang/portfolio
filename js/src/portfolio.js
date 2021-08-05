@@ -99,8 +99,8 @@ var setconFn = function(){
     scTeq.find('h2').fadeIn();
   }
   if(moveper > 35){
-    scTeq.find('.profile').animate({left:25 + '%'},setTime);
-    scTeq.find('.skill').animate({right:20 + '%'},setTime);
+    scTeq.find('.profile').animate({top:0, opacity:1},setTime);
+    scTeq.find('.skill').animate({top:0, opacity:1},setTime);
   }
   if(moveper > 45){
     scTeq.find('.container').animate({top:0, opacity:1}, setTime);
