@@ -334,11 +334,21 @@ h1 {
   margin-bottom: 2rem;
   font-size:2.5rem;
 }
-.proj_info button {
+.proj_info div {
+  display: inline-block;
   width:90px; height:40px;
   border:1px solid #fff;
   margin-top:2rem;
+}
+.proj_info div:first-of-type {
+  margin-right: 1rem;
+}
+.proj_info div a {
+  display: block;
+  width:100%; height:100%;
   color:#fff;
+  text-align: center;
+  line-height: 2.2;
 }
 .proj_info button:first-of-type {
   margin-right:1rem;
