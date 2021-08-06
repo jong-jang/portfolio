@@ -105,7 +105,7 @@ h1 {
     top:50%;
   }
 }
-span span {
+#title span span {
   display: inline-block;
   animation: rotate 10000ms ease-out;
 }
@@ -165,10 +165,28 @@ span span {
 .skill dd:last-of-type {
   margin-bottom: 0;
 }
-
-.skill_list li span {
+.skill_list li > span {
+  display: inline-block;
   position:absolute;
-  bottom:-1rem; left:0; right:0;
+  bottom: -2.5rem; left:50%; transform: translateX(-50%);
+  width:100%; height:1rem;
+  border: 0.5px solid #fff;
+  text-align: left;
+  font-size: 12px;
+  line-height: 1.2;
+  color: #1b2735;
+}
+.skill_list li span > span {
+  display: inline-block;
+  position:absolute; z-index: -1;
+  top:0; left:0;
+  width:0; height:100%;
+  background-color: #fff;
+}
+
+.skill_list li em {
+  position:absolute;
+  bottom:-0.5rem; left:0; right:0;
   margin:auto;
 }
 .skill_list li {
@@ -176,7 +194,7 @@ span span {
   float:left;
   width:80px; height:100px;
   margin-right: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
   text-align: center;
   background-repeat: no-repeat;
   background-size: 100%;
@@ -258,7 +276,7 @@ span span {
 }
 #portfolioBox .container {
   position:relative;
-  top:50%;
+  top:20%;
   opacity: 0;
   width:1060px;
   margin:auto;
