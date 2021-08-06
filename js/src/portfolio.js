@@ -22,6 +22,8 @@ var abConot = abCon.offset().top; // about 위 기준 위치
 var aboutH2 = abBox.find('h2'); // about의 h2
 var aboutP = $('.profile');
 var aboutS = $('.skill');
+var skL = $('.skill_list').children('li');
+var sksp = skL.find('span');
 // portfolio 변수
 var pfBox = $('#portfolioBox');
 var pfH2 = pfBox.find('h2');
@@ -81,7 +83,6 @@ var setscrollFn = function(Conot){
   }else if(moveper > 100){
     moveper = 100;
   }
-  console.log(moveper);
   return moveper;
 }
 var setconFn = function(){
@@ -100,7 +101,15 @@ var setconFn = function(){
   }
   if(moveper > 35){
     scTeq.find('.profile').animate({top:0, opacity:1},setTime);
-    scTeq.find('.skill').animate({top:0, opacity:1},setTime);
+    scTeq.find('.skill').animate({top:0, opacity:1}, setTime, function(){
+      skL.eq(0).children('span').children('span').animate({width:90 + '%'});
+      skL.eq(1).children('span').children('span').animate({width:80 + '%'});
+      skL.eq(2).children('span').children('span').animate({width:60 + '%'});
+      skL.eq(3).children('span').children('span').animate({width:60 + '%'});
+      skL.eq(4).children('span').children('span').animate({width:50 + '%'});
+      skL.eq(5).children('span').children('span').animate({width:40 + '%'});
+      skL.eq(6).children('span').children('span').animate({width:50 + '%'});
+    });
   }
   if(moveper > 45){
     scTeq.find('.container').animate({top:0, opacity:1}, setTime);
